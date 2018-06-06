@@ -1,0 +1,23 @@
+.wraper1{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 95vw;
+    height: 100vh;
+}
+
+.icon{
+    position: relative;
+    width: 30vw;
+    height: 25vw;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px;
+    background-color: blue;
+}
+
+.icon:hover{
+    width: 35vw;
+    height: 29vw;
+}
