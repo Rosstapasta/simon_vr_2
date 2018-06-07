@@ -399,7 +399,7 @@ class WorldOne extends Component {
           </Entity>
 
             {/* controls */}
-          {/* <Entity>
+          <Entity>
               <a-camera/>
               <a-entity 
                 id="lhand" 
@@ -415,10 +415,10 @@ class WorldOne extends Component {
                 mixin="controller" 
                 laser-controls="hand: right">
               </a-entity>
-          </Entity> */}
-          <a-camera>
+          </Entity>
+          {/* <a-camera>
             <a-cursor></a-cursor>
-          </a-camera>
+          </a-camera> */}
 
         {/* Sound */}
         <a-sound src={sound1} autoplay="false" on='click' position="0 2 5"></a-sound>          
