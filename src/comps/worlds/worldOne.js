@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import 'aframe';
 import 'aframe-text-geometry-component';
-import 'aframe-area-light-component';
-import 'aframe-particle-system-component';
 import 'aframe-animation-component';
 import {Entity, Scene} from 'aframe-react';
 import './worldOne.css';
@@ -12,11 +10,11 @@ import sound2 from './worldOneMedia/sound2.mp3';
 import sound3 from './worldOneMedia/sound3.mp3';
 import sound4 from './worldOneMedia/sound4.mp3';
 import sound5 from './worldOneMedia/sound5.mp3';
-import simonvideo from './worldOneMedia/simon.mp4';
 
 import Initials from './worldOneComps/initials.js';
 import PlayerScore from './worldOneComps/playerScore.js';
 import ScoreBoard from './worldOneComps/scoreBoard.js';
+import SimonVid from './worldOneComps/simonVideo.js';
 
 class WorldOne extends Component {
   constructor(){
@@ -173,19 +171,6 @@ class WorldOne extends Component {
     return (
       <div className="worldOne">
         <Scene background="color: #ffa277">
-        
-          <a-assets>
-            <video 
-              muted 
-              id="simonVid" 
-              autoplay='true' 
-              src={simonvideo}
-              loop="true"/>
-          </a-assets>
-
-            {/* wont run on macbook use pc */}
-          {/* <a-entity position="0 2.25 -15" particle-system="preset: dust"></a-entity> */}
-
 
           <a-plane 
             position="0 0 0" 
@@ -205,11 +190,7 @@ class WorldOne extends Component {
             color="#ffb9b5">
           </a-cylinder>
 
-          {/* cant run this line on macbook use pc */}
-          {/* <a-entity area-light="intensity:4; width:1; height:1; color: #FFFFFF;"></a-entity> */}
-
           <ScoreBoard></ScoreBoard>
-
           <PlayerScore>{this.state.score2}</PlayerScore>
 
           {/* player initials */}
@@ -242,14 +223,11 @@ class WorldOne extends Component {
                       material="color: black">
                     </a-entity>
                 </Entity>
-                <a-video
-                  muted
-                  src='#simonVid'
-                  position='0 .2 .15'
-                  rotation='0 0 0'
-                  scale='4.1 3.5 3.5'
-                  visible={`${!this.state.enterInitials}`}>
-                </a-video>
+
+                {!this.state.enterInitials ? <Entity>{
+                <SimonVid/>
+                }</Entity> :
+                <Entity/>}
 
                 <Entity 
                     geometry="primitive: box;" 
@@ -458,8 +436,6 @@ class WorldOne extends Component {
             <a-cursor></a-cursor>
           </a-camera> */}
 
-        {/* Sound */}
-        {/* <a-sound src={sound1} autoplay="false" on='click' position="0 2 5"></a-sound>           */}
         </Scene>
       </div>
     );
