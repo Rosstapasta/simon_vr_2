@@ -114,18 +114,32 @@ export default class Initials extends Component{
                     material={{color: "#cd77ff", opacity: .5}}
                     events={{click: () => this.letterChange(3)}}
                     rotation="0 -25 0">
+                    <a-animation
+                        begin="mouseenter" 
+                        end="mouseleave"
+                        attribute="scale"
+                        from="1.2 1.5 .4"
+                        to="1.3 1.6 .4">
+                    </a-animation>
                 </Entity>
 
 
                 {/* submitButton */}
                 <Entity 
                     geometry="primitive: box;" 
-                    position="6 1 -3.6"
+                    position="6 1.2 -3.6"
                     rotation="90 0 0"
-                    scale="1.2 1.5 .4"
+                    scale="2.1 .8 .4"
                     material={{color: "#cd77ff", opacity: .5}}
                     events={{click: () => this.sendScore()}}
                     rotation="0 -25 0">
+                    <a-entity
+                      text-geometry="value: Submit Sore"
+                      position="-.38 -.2 0"
+                      rotation="0 0 0"
+                      scale=".23 .92 .5"
+                      material="color: black">
+                    </a-entity>
                 </Entity>
                 
             </Entity>

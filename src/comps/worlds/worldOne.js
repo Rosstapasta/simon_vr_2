@@ -11,6 +11,7 @@ import sound2 from './worldOneMedia/sound2.mp3';
 import sound3 from './worldOneMedia/sound3.mp3';
 import sound4 from './worldOneMedia/sound4.mp3';
 import sound5 from './worldOneMedia/sound5.mp3';
+import simonvideo from './worldOneMedia/simon.mp4';
 
 import Initials from './worldOneComps/Initials.js';
 import PlayerScore from './worldOneComps/playerScore.js';
@@ -166,12 +167,20 @@ class WorldOne extends Component {
     }
   }
 
-
   render() {
 
     return (
       <div className="worldOne">
         <Scene background="color: #ffa277">
+        
+          <a-assets>
+            <video 
+              muted 
+              id="simonVid" 
+              autoplay='true' 
+              src={simonvideo}
+              loop="true"/>
+          </a-assets>
 
             {/* wont run on macbook use pc */}
           {/* <a-entity position="0 2.25 -15" particle-system="preset: dust"></a-entity> */}
@@ -217,21 +226,29 @@ class WorldOne extends Component {
             color="#ffe677"
             opacity='.5'
             static-body>
-
-                <a-entity
-                  text-geometry="value: Thanks for"
-                  position="-2 3 0"
-                  rotation="0 0 0"
-                  scale="1 1 1"
-                  material="color: black">
-                </a-entity>
-                <a-entity
-                  text-geometry="value: playing!"
-                  position="-2 2 0"
-                  rotation="0 0 0"
-                  scale="1 1 1"
-                  material="color: black">
-                </a-entity>
+                <Entity 
+                    geometry="primitive: box;" 
+                    position="0 3.2 0"
+                    rotation="0 0 0"
+                    scale="4.4 1 .4"
+                    material={{color: "red", opacity: .5}}
+                    visible={`${!this.state.enterInitials}`}>
+                    <a-entity
+                      text-geometry="value: Simon"
+                      position="-.34 -.2 0"
+                      rotation="0 0 0"
+                      scale=".4 1.3 1"
+                      material="color: black">
+                    </a-entity>
+                </Entity>
+                <a-video
+                  muted
+                  src='#simonVid'
+                  position='0 .2 .15'
+                  rotation='0 0 0'
+                  scale='4.1 3.5 3.5'
+                  visible={`${!this.state.enterInitials}`}>
+                </a-video>
 
                 <Entity 
                     geometry="primitive: box;" 
@@ -283,13 +300,13 @@ class WorldOne extends Component {
                   position=".4 .15 .15"
                   rotation='0 0 0'
                   scale='1.2 1.2 1.2'
-                  events={{click: () => this.seqStart()}}>
+                  events={{click: () => this.setState({score2: '00'}, () => this.seqStart())}}>
                   <a-animation
                     begin="click"
                     attribute='position'
                     duration='500'
-                    to='.4 .15 .2'
-                    from='.4 .08 .2'
+                    to='.4 .15 .15'
+                    from='.4 .08 .15'
                     repeat='0'>
                   </a-animation>
                 </Entity>
