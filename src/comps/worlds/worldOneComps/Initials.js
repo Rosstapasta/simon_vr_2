@@ -53,7 +53,6 @@ export default class Initials extends Component{
           }
           this.setState({iThree: newVal})
         }
-        
     }
 
     render(){
@@ -97,7 +96,6 @@ export default class Initials extends Component{
                     rotation="0 -25 0">
                 </Entity>
                 
-
                 {/* iThree */}
                 <a-entity 
                     text-geometry={`value: ${this.state.nameOption[this.state.iThree]}`} 
@@ -106,22 +104,27 @@ export default class Initials extends Component{
                     material="color: black"
                     rotation="0 -25 0">
                 </a-entity>
-                <Entity 
+                <a-entity 
                     geometry="primitive: box;" 
                     position="4.5 2.9 -4.3"
                     rotation="90 0 0"
                     scale="1.2 1.5 .4"
-                    material={{color: "#cd77ff", opacity: .5}}
+                    material="color: #cd77ff; opacity: 0.5"
                     events={{click: () => this.letterChange(3)}}
-                    rotation="0 -25 0">
-                    <a-animation
+                    rotation="0 -25 0"
+                    animation__color="property: material.color; easing: easeInSine; loop: false; to: red; startEvents: mouseenter;">
+                    {/* <a-animation
                         begin="mouseenter" 
                         end="mouseleave"
                         attribute="scale"
                         from="1.2 1.5 .4"
                         to="1.3 1.6 .4">
-                    </a-animation>
-                </Entity>
+                    </a-animation> */}
+                    {/* animation__mousein="property: scale; to: 1.2 1.2 1.2; startEvents: mouseenter;" animation__mouseout="property: scale; from: 1.2 1.2 1.2; to: 1 1 1; startEvents: mouseleave;" */}
+                </a-entity>
+                <a-entity position="0 3 0" geometry="primitive: box" material="color: black; opacity: 0.5"
+              animation__color="property: material.color; easing: easeInSine; loop: false; to: #FFF; startEvents: mouseenter;">
+                </a-entity>
 
 
                 {/* submitButton */}

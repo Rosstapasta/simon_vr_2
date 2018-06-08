@@ -3,6 +3,7 @@ import 'aframe';
 import 'aframe-text-geometry-component';
 import 'aframe-area-light-component';
 import 'aframe-particle-system-component';
+import 'aframe-animation-component';
 import {Entity, Scene} from 'aframe-react';
 import './worldOne.css';
 
@@ -172,6 +173,10 @@ class WorldOne extends Component {
     return (
       <div className="worldOne">
         <Scene background="color: #ffa277">
+
+        <a-entity geometry="primitive: box" material="color: black; opacity: 0.5"
+              animation__color="property: material.color; easing: easeInSine; loop: false; to: #FFF; startEvents: mouseenter;">
+    </a-entity>
         
           <a-assets>
             <video 
