@@ -208,7 +208,7 @@ class WorldOne extends Component {
           }</Entity> :
           <Entity/>}
 
-            {/* namePlane */}
+            {/* namePlane board thing*/}
           <a-plane
             position="6 2 -3.65"
             rotation="0 -25 0"
@@ -217,20 +217,37 @@ class WorldOne extends Component {
             color="#ffe677"
             opacity='.5'
             static-body>
+
+                <a-entity
+                  text-geometry="value: Thanks for"
+                  position="-2 3 0"
+                  rotation="0 0 0"
+                  scale="1 1 1"
+                  material="color: black">
+                </a-entity>
+                <a-entity
+                  text-geometry="value: playing!"
+                  position="-2 2 0"
+                  rotation="0 0 0"
+                  scale="1 1 1"
+                  material="color: black">
+                </a-entity>
+
                 <Entity 
                     geometry="primitive: box;" 
                     position="0 3 0"
                     rotation="0 0 0"
                     scale="4.4 1.3 .4"
-                    material={{color: "red", opacity: .5}}>
+                    material={{color: "red", opacity: .5}}
+                    visible={`${this.state.enterInitials}`}>
                 </Entity>
-
                 <a-entity 
                     text-geometry={`value: NAME`} 
                     position='-1.9 2.5 0' 
                     scale='2 2 2'
                     rotation="0 0 0"
-                    material="color: black">
+                    material="color: black"
+                    visible={`${this.state.enterInitials}`}>
                 </a-entity>
           </a-plane>
 
@@ -263,9 +280,9 @@ class WorldOne extends Component {
                 <Entity
                   geometry="primitive: cylinder; height: .9; radius: .1"
                   material ={{color: 'green'}}
-                  position=".4 .15 .2"
+                  position=".4 .15 .15"
                   rotation='0 0 0'
-                  scale='1 1 1'
+                  scale='1.2 1.2 1.2'
                   events={{click: () => this.seqStart()}}>
                   <a-animation
                     begin="click"
@@ -276,12 +293,19 @@ class WorldOne extends Component {
                     repeat='0'>
                   </a-animation>
                 </Entity>
+                <a-entity
+                  text-geometry="value: start"
+                  position=".27 .5 .4"
+                  rotation="270 0 0"
+                  scale=".2 .2 .2"
+                  material="color: black">
+                </a-entity>
 
                   {/* simon text */}
                 <a-entity
-                  text-geometry="value: Simon"
-                  position="-.54 .5 -.24"
-                  scale=".6 .5 .6"
+                  text-geometry="value: Simon; bevelThickness: 30"
+                  position="-.69 .5 -.14"
+                  scale=".75 .65 .75"
                   rotation="270 0 0"
                   material="color: black">
                 </a-entity>
@@ -290,7 +314,7 @@ class WorldOne extends Component {
                 <Entity
                   geometry="primitive: box;"
                   material={{color: 'black'}}
-                  position='-.35 .5 .2'
+                  position='-.35 .5 .23'
                   rotation='0 0 0'
                   scale='.4 .1 .3'>
                   <a-entity 
@@ -399,7 +423,7 @@ class WorldOne extends Component {
           </Entity>
 
             {/* controls */}
-          <Entity>
+          {/* <Entity>
               <a-camera/>
               <a-entity 
                 id="lhand" 
@@ -415,10 +439,10 @@ class WorldOne extends Component {
                 mixin="controller" 
                 laser-controls="hand: right">
               </a-entity>
-          </Entity>
-          {/* <a-camera>
+          </Entity> */}
+          <a-camera>
             <a-cursor></a-cursor>
-          </a-camera> */}
+          </a-camera>
 
         {/* Sound */}
         <a-sound src={sound1} autoplay="false" on='click' position="0 2 5"></a-sound>          
