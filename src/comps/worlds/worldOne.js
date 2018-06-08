@@ -346,7 +346,8 @@ class WorldOne extends Component {
               material={{color: this.state.colorBlue}} 
               position='0 .3 0' 
               rotation='0 135 0'
-              events={{click: () => this.changeColor('blue')}}>
+              events={{click: () => this.changeColor('blue')}}
+              sound={`src: ${sound4}; on: click`}>
               <a-animation
                 begin="click"
                 attribute='position'
@@ -364,7 +365,8 @@ class WorldOne extends Component {
               position='0 .3 0' 
               rotation='0 315 0'
               scale="1 1 1"
-              events={{click: () => this.changeColor('red')}}>
+              events={{click: () => this.changeColor('red')}}
+              sound={`src: ${sound3}; on: click`}>
               <a-animation
                 begin="click"
                 attribute='position'
@@ -382,7 +384,8 @@ class WorldOne extends Component {
               material={{color: this.state.colorYellow}} 
               position='0 .3 0' 
               rotation='0 45 0'
-              events={{click: () => this.changeColor('yellow')}}>
+              events={{click: () => this.changeColor('yellow')}}
+              sound={`src: ${sound2}; on: click`}>
             <a-animation
               begin="click"
               attribute='position'
@@ -400,7 +403,8 @@ class WorldOne extends Component {
               material={{color: this.state.colorGreen}} 
               position='0 .3 0' 
               rotation='0 225 0'
-              events={{click: () => this.changeColor('green')}}>
+              events={{click: () => this.changeColor('green')}}
+              sound={`src: ${sound1}; on: click`}>
               <a-animation
                 begin="click"
                 attribute='position'
@@ -415,7 +419,7 @@ class WorldOne extends Component {
           </Entity>
 
             {/* controls */}
-          <Entity>
+          {/* <Entity>
               <a-camera/>
               <a-entity 
                 id="lhand" 
@@ -431,10 +435,10 @@ class WorldOne extends Component {
                 mixin="controller" 
                 laser-controls="hand: right">
               </a-entity>
-          </Entity>
-          {/* <a-camera>
+          </Entity> */}
+          <a-camera>
             <a-cursor></a-cursor>
-          </a-camera> */}
+          </a-camera>
 
         </Scene>
       </div>

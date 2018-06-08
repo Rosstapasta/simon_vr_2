@@ -13,16 +13,18 @@ export default class Initials extends Component{
             iOne: 0,
             iTwo: 0,
             iThree: 0,
+            sent: false
         }
     }
 
     sendScore(){
+        this.setState({sent: true})
         const {iOne, iTwo, iThree, nameOption} = this.state;
         var initials = nameOption[iThree] + nameOption[iTwo] + nameOption[iOne];
         var score = this.props.children;
         console.log(score, 'score');
         axios.post('/sendscore', {initials, score}).then( res => {
-            alert('success')
+            console.log("success")
         })
     }
 
@@ -114,21 +116,38 @@ export default class Initials extends Component{
                 </Entity>
 
                 {/* submitButton */}
-                <Entity 
-                    geometry="primitive: box;" 
-                    position="6 1.2 -3.6"
-                    scale="2.1 .8 .4"
-                    material={{color: "#cd77ff", opacity: .5}}
-                    events={{click: () => this.sendScore()}}
-                    rotation="0 -25 0">
-                    <a-entity
-                      text-geometry="value: Submit Sore"
-                      position="-.38 -.2 0"
-                      rotation="0 0 0"
-                      scale=".23 .92 .5"
-                      material="color: black">
-                    </a-entity>
-                </Entity>
+                {this.state.sent ? <Entity>{
+                    <Entity 
+                        geometry="primitive: box;" 
+                        position="6 1.2 -3.6"
+                        scale="2.1 .8 .4"
+                        material={{color: "#cd77ff", opacity: .5}}
+                        rotation="0 -25 0">
+                        <a-entity
+                        text-geometry="value: Success"
+                        position="-.38 -.2 0"
+                        rotation="0 0 0"
+                        scale=".23 .92 .5"
+                        material="color: black">
+                        </a-entity>
+                    </Entity>
+                }</Entity> : 
+                    <Entity 
+                        geometry="primitive: box;" 
+                        position="6 1.2 -3.6"
+                        scale="2.1 .8 .4"
+                        material={{color: "#cd77ff", opacity: .5}}
+                        events={{click: () => this.sendScore()}}
+                        rotation="0 -25 0">
+                        <a-entity
+                        text-geometry="value: Submit Sore"
+                        position="-.38 -.2 0"
+                        rotation="0 0 0"
+                        scale=".23 .92 .5"
+                        material="color: black">
+                        </a-entity>
+                    </Entity>
+                }
                 
             </Entity>
         )
