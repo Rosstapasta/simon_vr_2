@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'aframe';
 import 'aframe-text-geometry-component';
-import {Entity, Scene} from 'aframe-react';
+import {Entity} from 'aframe-react';
 import axios from 'axios';
 
 export default class Initials extends Component{
@@ -70,7 +70,6 @@ export default class Initials extends Component{
                 <Entity 
                     geometry="primitive: box;" 
                     position="7.5 2.9 -2.9"
-                    rotation="90 0 0"
                     scale="1.2 1.5 .4"
                     material={{color: "#cd77ff", opacity: .5}}
                     events={{click: () => this.letterChange(1)}}
@@ -89,7 +88,6 @@ export default class Initials extends Component{
                 <Entity 
                     geometry="primitive: box;" 
                     position="6 2.9 -3.6"
-                    rotation="90 0 0"
                     scale="1.2 1.5 .4"
                     material={{color: "#cd77ff", opacity: .5}}
                     events={{click: () => this.letterChange(2)}}
@@ -104,34 +102,21 @@ export default class Initials extends Component{
                     material="color: black"
                     rotation="0 -25 0">
                 </a-entity>
-                <a-entity 
+                <Entity 
                     geometry="primitive: box;" 
                     position="4.5 2.9 -4.3"
-                    rotation="90 0 0"
                     scale="1.2 1.5 .4"
                     material="color: #cd77ff; opacity: 0.5"
                     events={{click: () => this.letterChange(3)}}
                     rotation="0 -25 0"
-                    animation__color="property: material.color; easing: easeInSine; loop: false; to: red; startEvents: mouseenter;">
-                    {/* <a-animation
-                        begin="mouseenter" 
-                        end="mouseleave"
-                        attribute="scale"
-                        from="1.2 1.5 .4"
-                        to="1.3 1.6 .4">
-                    </a-animation> */}
-                    {/* animation__mousein="property: scale; to: 1.2 1.2 1.2; startEvents: mouseenter;" animation__mouseout="property: scale; from: 1.2 1.2 1.2; to: 1 1 1; startEvents: mouseleave;" */}
-                </a-entity>
-                <a-entity position="0 3 0" geometry="primitive: box" material="color: black; opacity: 0.5"
-              animation__color="property: material.color; easing: easeInSine; loop: false; to: #FFF; startEvents: mouseenter;">
-                </a-entity>
+                    animation__mousein="property: material.color; dur: 1; easing: linear; from: #cd77ff; to: #ff0000; startEvents: mouseenter;" animation__mouseout="property: material.color; dur: 1; easing: linear;from: #ff0000; to: #cd77ff; startEvents: mouseleave;" animation__click="property: material.color; dur: 10000; easing: linear; from: #ff0000; to: #ff0000; loop: true; startEvents: click;">
 
+                </Entity>
 
                 {/* submitButton */}
                 <Entity 
                     geometry="primitive: box;" 
                     position="6 1.2 -3.6"
-                    rotation="90 0 0"
                     scale="2.1 .8 .4"
                     material={{color: "#cd77ff", opacity: .5}}
                     events={{click: () => this.sendScore()}}

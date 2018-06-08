@@ -14,7 +14,7 @@ import sound4 from './worldOneMedia/sound4.mp3';
 import sound5 from './worldOneMedia/sound5.mp3';
 import simonvideo from './worldOneMedia/simon.mp4';
 
-import Initials from './worldOneComps/Initials.js';
+import Initials from './worldOneComps/initials.js';
 import PlayerScore from './worldOneComps/playerScore.js';
 import ScoreBoard from './worldOneComps/scoreBoard.js';
 
@@ -173,10 +173,6 @@ class WorldOne extends Component {
     return (
       <div className="worldOne">
         <Scene background="color: #ffa277">
-
-        <a-entity geometry="primitive: box" material="color: black; opacity: 0.5"
-              animation__color="property: material.color; easing: easeInSine; loop: false; to: #FFF; startEvents: mouseenter;">
-    </a-entity>
         
           <a-assets>
             <video 
@@ -389,10 +385,8 @@ class WorldOne extends Component {
               material={{color: this.state.colorRed}} 
               position='0 .3 0' 
               rotation='0 315 0'
-              // sound={`src: ${sound1}; on: click`}
               scale="1 1 1"
               events={{click: () => this.changeColor('red')}}>
-              {/* <a-sound src={sound1} autoplay="false" on='click' position="0 2 5"></a-sound>   */}
               <a-animation
                 begin="click"
                 attribute='position'
@@ -401,8 +395,6 @@ class WorldOne extends Component {
                 to='0 .3 0'
                 repeat='0'
                 easing='ease'>
-              {/* <a-sound src={sound1}></a-sound> */}
-              {/* <audio autoplay={this.state.sound1} src={sound1} type="audio/mp3" ></audio> */}
               </a-animation>
             </Entity>
 
@@ -445,7 +437,7 @@ class WorldOne extends Component {
           </Entity>
 
             {/* controls */}
-          {/* <Entity>
+          <Entity>
               <a-camera/>
               <a-entity 
                 id="lhand" 
@@ -461,13 +453,13 @@ class WorldOne extends Component {
                 mixin="controller" 
                 laser-controls="hand: right">
               </a-entity>
-          </Entity> */}
-          <a-camera>
+          </Entity>
+          {/* <a-camera>
             <a-cursor></a-cursor>
-          </a-camera>
+          </a-camera> */}
 
         {/* Sound */}
-        <a-sound src={sound1} autoplay="false" on='click' position="0 2 5"></a-sound>          
+        {/* <a-sound src={sound1} autoplay="false" on='click' position="0 2 5"></a-sound>           */}
         </Scene>
       </div>
     );
@@ -475,31 +467,3 @@ class WorldOne extends Component {
 }
 
 export default WorldOne;
-
-
-
-
-
-
-{/* <a-entity geometry="primitive: cylinder; radius: 2; segmentsRadial: 6; thetaLength: -160; openEnded: true"       
-material="shader: html; target: #texture; side: double; width: 500; height: 300; transparent: true" update-repeat position="0 0 -4" rotation="0 -90 0"></a-entity> */}
-
-
-{/* score */}
-{/* <a-text
-  material={{color: "black"}}
-  value={`Your score....${this.state.score}`} 
-  position='0 0 -3'
-  rotation='270 0 0'
-  scale='1 1 1' 
-  width='15px'>
-  <a-animation 
-    attribute='position' 
-    duration='2000' 
-    from='0 0 -3' 
-    to='0 0 -4'
-    direction="alternate-reverse"
-    repeat="indefinite"
-    easing="ease">
-  </a-animation>
-</a-text> */}

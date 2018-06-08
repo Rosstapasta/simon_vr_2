@@ -23,9 +23,6 @@ export default class ScoreBoard extends Component{
     render(){
         return (
             <Entity>
-                                <a-entity position="2 3 0" geometry="primitive: box" material="color: black; opacity: 0.5"
-              animation__color="property: material.color; easing: easeInSine; loop: false; to: #FFF; startEvents: mouseenter;">
-                </a-entity>
             <a-plane
                 position="-6 2 -3.65"
                 rotation="0 25 0"
