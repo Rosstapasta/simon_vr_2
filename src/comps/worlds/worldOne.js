@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'aframe';
 import 'aframe-text-geometry-component';
 import 'aframe-animation-component';
+import 'aframe-mouse-cursor-component'
 import {Entity, Scene} from 'aframe-react';
 import './worldOne.css';
 
@@ -10,6 +11,7 @@ import sound2 from './worldOneMedia/sound2.mp3';
 import sound3 from './worldOneMedia/sound3.mp3';
 import sound4 from './worldOneMedia/sound4.mp3';
 import sound5 from './worldOneMedia/sound5.mp3';
+import robotRock from './worldOneMedia/RobotRock.ogg';
 
 import Initials from './worldOneComps/initials.js';
 import PlayerScore from './worldOneComps/playerScore.js';
@@ -39,10 +41,24 @@ class WorldOne extends Component {
       iTwo: 0,
       iThree: 0,
 
-      enterInitials: false
+      enterInitials: false,
+
+      soundOne: false,
+      soundTwo: false,
+      soundThree: false,
+      soundFour: false,
+      soundFive: false,
+
+      controls: true
     }
     this.playerInput = this.playerInput.bind(this);
     this.changeColor = this.changeColor.bind(this);
+  }
+
+  componentWillMount(){
+    if(this.props.match.params.mode === "VR"){
+      this.setState({controls: false})
+    }
   }
 
 
@@ -61,38 +77,42 @@ class WorldOne extends Component {
         if(random[i] === 1){
 
           setTimeout( () => {
-            this.setState({colorRed: 'purple'})
-          }, 1000 * timesX)
+            this.setState({colorRed: 'purple', soundThree: true})
+          }, 700 * timesX)
           setTimeout( () => {
-            this.setState({colorRed: 'red'})
-          }, 1000 * timesX2)
+            this.setState({colorRed: 'red', soundThree: false})
+          }, 700 * timesX2)
 
         }else if(random[i] === 2){
 
           setTimeout( () => {
             this.setState({colorYellow: 'purple'})
-          }, 1000 * timesX)
+          }, 700 * timesX)
+
+          // setTimeout( () => {
+          //   this.setState({soundTwo: true})
+          // }, 700 * timesX - 50)
           setTimeout( () => {
-            this.setState({colorYellow: 'yellow'})
-          }, 1000 * timesX2)
+            this.setState({colorYellow: 'yellow', soundTwo: false})
+          }, 700 * timesX2)
 
         }else if(random[i] === 3){
 
           setTimeout( () => {
-            this.setState({colorBlue: 'purple'})
-          }, 1000 * timesX)
+            this.setState({colorBlue: 'purple', soundFour: true})
+          }, 700 * timesX)
           setTimeout( () => {
-            this.setState({colorBlue: 'blue'})
-          }, 1000 * timesX2)
+            this.setState({colorBlue: 'blue', soundFour: false})
+          }, 700 * timesX2)
 
         }else if(random[i] === 4){
 
           setTimeout( () => {
-            this.setState({colorGreen: 'purple'})
-          }, 1000 * timesX)
+            this.setState({colorGreen: 'purple', soundOne: true})
+          }, 700 * timesX)
           setTimeout( () => {
-            this.setState({colorGreen: 'green'})
-          }, 1000 * timesX2)
+            this.setState({colorGreen: 'green', soundOne: false})
+          }, 700 * timesX2)
 
         }
         timesX += 1;
@@ -129,10 +149,10 @@ class WorldOne extends Component {
         this.setState({playerSeq: []}, () => {return this.seqStart()})
       }else if(playerSeq.length === sequence.length && playerSeq.toString() !== sequence.toString()){
         // alert('you loose!');
-        this.setState({sequence: [], playerSeq: [], enterInitials: true})
+        this.setState({sequence: [], playerSeq: [], enterInitials: true, soundFive: true})
       }else if(playerSeq.toString() !== seqPiece2.toString()){
         // alert('you loose!');
-          this.setState({sequence: [], playerSeq: [], enterInitials: true})
+          this.setState({sequence: [], playerSeq: [], enterInitials: true, soundFive: true})
       }
     })
   }
@@ -140,37 +160,83 @@ class WorldOne extends Component {
   changeColor(val){
 
     if(val === 'red'){
-      this.setState({colorRed: 'purple', sound1: true})
+      this.setState({colorRed: 'purple'})
       setTimeout( () => {
-        this.setState({colorRed: 'red', sound1: false}, 
+        this.setState({colorRed: 'red'}, 
         () => this.playerInput(1))
-      }, 1000)
+      }, 500)
     }else if(val === 'green'){
       this.setState({colorGreen: 'purple'})
       setTimeout( () => {
         this.setState({colorGreen: 'green'}, 
         () => this.playerInput(4))
-      }, 1000)
+      }, 500)
     }else if(val === 'blue'){
       this.setState({colorBlue: 'purple'})
       setTimeout( () => {
         this.setState({colorBlue: 'blue'}, 
         () => this.playerInput(3))
-      }, 1000)
+      }, 500)
     }else if(val === 'yellow'){
       this.setState({colorYellow: 'purple'})
       setTimeout( () => {
         this.setState({colorYellow: 'yellow'}, 
         () => this.playerInput(2))
-      }, 1000)
+      }, 500)
     }
   }
 
   render() {
 
     return (
-      <div className="worldOne">
-        <Scene background="color: #ffa277">
+      <div className="worldOne" style={{position: 'fixed', height: '83vh'}}>
+              {/* <audio volume="2" src={robotRock} autoplay="true" type="audio/ogg" ></audio>    */}
+
+            {/* soundOne */}
+            {this.state.soundOne ? <div>{
+              <audio src={sound1} autoplay="true" type="audio/mp3" ></audio>              
+            }</div> : 
+              <div/>
+            }
+
+            {/* soundTwo */}
+            {this.state.soundTwo ? <div>{
+              <audio src={sound2} autoplay="true" type="audio/mp3" ></audio>              
+            }</div> : 
+              <div/>
+            }
+
+            {/* soundThree */}
+            {this.state.soundThree ? <div>{
+              <audio src={sound3} autoplay="true" type="audio/mp3" ></audio>              
+            }</div> : 
+              <div/>
+            }
+      
+            {/* soundFour */}
+            {this.state.soundFour ? <div>{
+              <audio src={sound4} autoplay="true" type="audio/mp3" ></audio>              
+            }</div> : 
+              <div/>
+            }
+
+            {/* soundFive */}
+            {this.state.soundFive ? <div>{
+              <audio src={sound5} autoplay="true" type="audio/mp3" ></audio>              
+            }</div> : 
+              <div/>
+            }
+            
+        <Scene embedded background="color: #ffa277">
+
+        {/* <a-assets>
+          <audio id="robotRock1" src={robotRock} preload="auto" type="audio/ogg"></audio>
+        </a-assets>
+
+        <a-entity position="0 0 0" sound="src: #robotRock1"></a-entity> */}
+
+          <a-sound src='src: url(worldOneMedia/RobotRock.ogg)' autoplay="true" position="0 0 0"></a-sound>
+
 
           <a-plane 
             position="0 0 0" 
@@ -256,7 +322,6 @@ class WorldOne extends Component {
             material={{color: 'black'}} 
             position='0 2 -5' 
             rotation='90 0 0'>
-
 
               {/* Middle */}
             <Entity
@@ -351,7 +416,7 @@ class WorldOne extends Component {
               <a-animation
                 begin="click"
                 attribute='position'
-                duration='500'
+                duration='300'
                 from='0 .09 0'
                 to='0 .3 0'
                 repeat='0'>
@@ -370,7 +435,7 @@ class WorldOne extends Component {
               <a-animation
                 begin="click"
                 attribute='position'
-                duration='500'
+                duration='300'
                 from='0 .09 0'
                 to='0 .3 0'
                 repeat='0'
@@ -389,7 +454,7 @@ class WorldOne extends Component {
             <a-animation
               begin="click"
               attribute='position'
-              duration='500'
+              duration='300'
               from='0 .09 0'
               to='0 .3 0'
               repeat='0'
@@ -408,7 +473,7 @@ class WorldOne extends Component {
               <a-animation
                 begin="click"
                 attribute='position'
-                duration='500'
+                duration='300'
                 from='0 .09 0'
                 to='0 .3 0'
                 repeat='0'
@@ -419,7 +484,14 @@ class WorldOne extends Component {
           </Entity>
 
             {/* controls */}
-          {/* <Entity>
+
+
+          {this.state.controls ? <Entity>{
+              <a-camera>
+                <a-cursor></a-cursor>
+              </a-camera>
+          }</Entity> : 
+          <Entity>
               <a-camera/>
               <a-entity 
                 id="lhand" 
@@ -435,10 +507,9 @@ class WorldOne extends Component {
                 mixin="controller" 
                 laser-controls="hand: right">
               </a-entity>
-          </Entity> */}
-          <a-camera>
-            <a-cursor></a-cursor>
-          </a-camera>
+          </Entity>
+          }
+
 
         </Scene>
       </div>

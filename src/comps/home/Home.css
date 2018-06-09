@@ -4,12 +4,24 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 95vw;
+    width: auto;
     height: 100vh;
+    background-color: rgb(245, 245, 245);
 }
 
+.world{
+    position: absolute;
+    width: 40vw;
+    height: 30vw;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px;
+    background-color: white;
+    box-shadow: 0 0 10px 5px;
+}
+
+
 .icon{
-    position: relative;
+    position: absolute;
     width: 30vw;
     height: 25vw;
     border-radius: 20px;
@@ -17,7 +29,43 @@
     background-color: blue;
 }
 
-.icon:hover{
-    width: 35vw;
-    height: 29vw;
+.world:hover{
+    background-color: black;
+    color: white;
+}
+
+.buttonOne{
+    width: 40%;
+    height: 15%;
+    position: relative;
+    margin: 4%;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 10px 5px;
+    top: 20%;
+    background-color: blue;
+    font-size: 99%;
+
+}
+
+.buttonOne:hover{
+    background-color: green;
+}
+
+#two{
+    background-color: red;
+}
+
+#two:hover{
+    background-color: yellow;
+}
+
+.simon{
+    position: relative;
+    top: 3.4vw;
+    font-size: 14.5vw;
+}
+
+.buttonFont{
+    font-size: 1.4vw;
 }

@@ -1,6 +1,3 @@
-// comp has issues
-
-
 import React, { Component } from 'react';
 import 'aframe';
 import 'aframe-text-geometry-component';
