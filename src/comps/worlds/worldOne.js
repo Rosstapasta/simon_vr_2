@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import 'aframe';
 import 'aframe-text-geometry-component';
 import 'aframe-animation-component';
-import 'aframe-mouse-cursor-component'
+import 'aframe-mouse-cursor-component';
+import 'aframe-fps-look-controls-component';
 import {Entity, Scene} from 'aframe-react';
 import './worldOne.css';
 
@@ -487,9 +488,9 @@ class WorldOne extends Component {
 
 
           {this.state.controls ? <Entity>{
-              <a-camera>
+              <a-entity camera fps-look-controls wasd-controls>
                 <a-cursor></a-cursor>
-              </a-camera>
+              </a-entity>
           }</Entity> : 
           <Entity>
               <a-camera/>
