@@ -1,12 +1,57 @@
 .wraper1{
-    position: relative;
+    /* position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: auto;
+    width: auto; */
+    /* height: 100vh; */
+    /* background-color: rgb(245, 245, 245); */
+
+        /* The image used */
+        /* background-image: url("./homeMedia/future.jpg"); */
+
+
+        perspective: 1px;
+        transform-style: preserve-3d;
+        height: 83vh;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    
+}
+
+.parallax{
+    display: flex;
+    flex: 1 0 auto;
+    position: relative;
+    z-index: -1;
     height: 100vh;
-    background-color: rgb(245, 245, 245);
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(-1px) scale(2);
+    background: url("./homeMedia/city.jpg");
+    background-size: 100%;
+    background-color: rgb(250,228, 216);
+}
+
+.ContentCon{
+    display: block;
+    position: relative;
+    background-color: #222;
+    color: white;
+    z-index: 1;
+    height: auto;
+    min-height: 83vh;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .world{
@@ -15,8 +60,9 @@
     height: 30vw;
     border-radius: 20px;
     box-shadow: 0 0 10px 5px;
-    background-color: white;
+    background-color: #222;
     box-shadow: 0 0 10px 5px;
+    color: white;
 }
 
 
@@ -30,8 +76,7 @@
 }
 
 .world:hover{
-    background-color: black;
-    color: white;
+    background-color: #2EE59D;
 }
 
 .buttonOne{
@@ -45,6 +90,7 @@
     top: 20%;
     background-color: blue;
     font-size: 99%;
+    color: white;
 
 }
 
@@ -68,4 +114,40 @@
 
 .buttonFont{
     font-size: 1.4vw;
+}
+
+#video-background {
+    /*  making the video fullscreen  */
+      position: relative;
+      right: 0; 
+      bottom: 0;
+      max-width: 100%; 
+      max-height: 100%;
+      width: auto; 
+      height: auto;
+      z-index: -100;
+    }
+
+@media(max-width: 400px){
+    #video-background{
+        max-width: 190%;
+        max-height: 190%;
+      
+    }
+}
+
+.simonImg{
+    max-width: 100%;
+}
+
+.textMedia{
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#text2{
+    width: 90%;
 }
