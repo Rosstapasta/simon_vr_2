@@ -3,7 +3,8 @@
     height: 17vh;
     padding: 5px;
     color: white;
-    width: 100vw; 
+    width: 100vw;
+    position: relative;
 }
 
 .text{

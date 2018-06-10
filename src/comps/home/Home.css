@@ -44,6 +44,10 @@
     min-height: 83vh;
 }
 
+#cc2{
+    min-height: 10vh;
+}
+
 .content{
     display: flex;
     flex-direction: column;
@@ -150,4 +154,9 @@
 
 #text2{
     width: 90%;
+}
+
+.footer_home{
+    position: relative;
+    bottom: -40%;
 }

@@ -1,0 +1,164 @@
+.gamebuttonbody{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100vw;
+    height: auto;
+}
+
+.middleButtonRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#mbr1{
+    position: relative;
+    z-index: 1;
+    top: 8px;
+}
+
+#mbr2{
+    position: relative;
+    bottom: 270px;
+    z-index: 1;
+}
+
+.bottombuttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px;
+    position: relative;
+    z-index: 2;
+    bottom: 130px;
+}
+
+.buttonbutton{
+width:20px;
+height: 20px;
+background-color: green;
+border-radius: 10px;
+border: none;
+box-shadow: 2px 2px rgb(1, 80, 1);
+}
+
+.testbutton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:10px;
+    height: 240px;
+    width: 245px;
+    border-radius: 125px;
+    background-color: rgb(34, 33, 33);    
+}
+
+.testbuttonrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    bottom: 30px;
+}
+
+.rounds{
+    background-color: rgb(180, 176, 176);
+    height: 25px;
+    width: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.placeholder{
+    width: 30px;
+    height: 1px;
+}
+
+.simon777{
+    color: white;
+    font-size: 3.8rem;
+}
+
+.gamebutton{
+    height: 230px;
+    width: 235px;
+    border-radius: 20px;
+    margin:10px;
+    border: none;
+    position: relative
+}
+
+#yellow{
+    background-color: rgb(255, 251, 0);
+    border-radius: 500px 40px 40px 40px;
+    box-shadow: 7px 5px rgb(212, 212, 13);
+    outline: 0;
+    bottom: 5px;
+    right: 7px;
+    
+}
+
+#yellow2{
+    background-color: rgb(255, 255, 185);
+    border-radius: 500px 40px 40px 40px;
+   
+}
+
+#green{
+    background-color: green;
+    border-radius: 40px 500px 40px 40px;
+    box-shadow: -7px 5px rgb(1, 80, 1);
+    outline: 0;
+    bottom: 5px;
+    left: 7px;
+}
+
+#green2{
+    background-color: rgb(64, 231, 106);
+    border-radius: 40px 500px 40px 40px;
+}
+
+#red{
+    background-color: red;
+    border-radius: 40px 40px 40px 500px;
+    box-shadow: 7px -5px rgb(158, 14, 14);
+    outline: 0;
+    top: 5px;
+    right: 7px;
+}
+
+#red2{
+    background-color: rgb(245, 126, 96);
+    border-radius: 40px 40px 40px 500px;
+}
+
+#blue{
+    background-color: blue;
+    border-radius: 40px 40px 500px 40px;
+    box-shadow:  -7px -5px  rgb(13, 13, 163);
+    outline: 0;
+    top: 5px;
+    left: 7px;
+}
+
+#blue2{
+    background-color: rgb(0, 183, 255);
+    border-radius: 40px 40px 500px 40px;
+}
+
+.simonouter{
+    height: 555px;
+    width: 600px;
+    background-color: rgb(34, 33, 33);
+    border-radius: 600px;
+    position: relative;
+    bottom: 800px;
+}
