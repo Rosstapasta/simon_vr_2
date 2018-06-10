@@ -304,15 +304,8 @@ class WorldOne extends Component {
                   position=".4 .15 .15"
                   rotation='0 0 0'
                   scale='1.2 1.2 1.2'
-                  events={{click: () => this.setState({score2: '00'}, () => this.seqStart())}}>
-                  <a-animation
-                    begin="click"
-                    attribute='position'
-                    duration='500'
-                    to='.4 .15 .15'
-                    from='.4 .08 .15'
-                    repeat='0'>
-                  </a-animation>
+                  events={{click: () => { return this.seqStart(), this.setState({score2: '00'}) }}}
+                  animation__click="property: position; dur: 500; easing: linear; from: .4 .08 .15'; to: .4 .15 .15; startEvents: click;">
                 </Entity>
                 <a-entity
                   text-geometry="value: start"
