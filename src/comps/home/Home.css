@@ -39,7 +39,7 @@
     display: block;
     position: relative;
     background-color: #222;
-    color: white;
+    color: #cd77ff;
     z-index: 1;
     height: auto;
     min-height: 83vh;
@@ -62,11 +62,11 @@
 .world{
     position: absolute;
     width: 40vw;
-    height: 30vw;
+    height: 20vw;
     border-radius: 20px;
-    background-color: #cd77ff;
+    background-color: #77dbff;
     /* box-shadow: 0 0 10px 5px; */
-    color: white;
+    color: #ffe677;
 }
 
 
@@ -90,30 +90,32 @@
     margin: 4%;
     border-radius: 6px;
     border: none;
-    box-shadow: 0 0 10px 5px;
-    top: 20%;
-    background-color: blue;
+    top: 25%;
+    background-color: #cd77ff;
     font-size: 99%;
-    color: white;
-
+    color: #ffe677;
+    font-weight: bold;
 }
 
 .buttonOne:hover{
-    background-color: green;
+    background-color: #ffa277;
+    box-shadow: 0 0 10px 5px;
 }
 
 #two{
-    background-color: red;
+    background-color: #cd77ff;
 }
 
 #two:hover{
-    background-color: yellow;
+    background-color: #ffa277;
+    box-shadow: 0 0 10px 5px;
 }
 
 .simon{
     position: relative;
-    top: 3.4vw;
-    font-size: 14.5vw;
+    top: 5.5vw;
+    font-size: 7.5vw;
+    font-weight: bold;
 }
 
 .buttonFont{
@@ -159,4 +161,10 @@
 .footer_home{
     position: relative;
     bottom: -40%;
+}
+
+.simonVid{
+    /* border: 3px solid #cd77ff; */
+    border-radius: 5px;
+    box-shadow: 0 0 6px 3px;
 }

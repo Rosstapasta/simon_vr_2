@@ -18,7 +18,7 @@ class Home extends Component {
 
           <div className="parallax">
               <div className="world">
-                <div className="simon">Simon</div>
+                <div className="simon">SIMON</div>
 
                   {/* simon_DSKT_button */}
                 <Link to='/simon/DSKT'>    
@@ -48,39 +48,39 @@ class Home extends Component {
 
 
             <div className="textMedia">
-            <h1>
-              Thank you for visiting! Simon VR was built using React and A-frame.
-            </h1>
-            
-            <video 
-              id="video-background"
-              width="450"
-              autoPlay="true" 
-              loop>
-              <source 
-                src={Demo} 
-                type="video/mp4"/>
-                Your browser does not support the video tag.
-            </video>
-            <h3>DEMO</h3>
+              <h1>
+                Thank you for visiting! Simon VR was built using React and A-frame.
+              </h1>
+              
+              <video 
+                id="video-background"
+                width="450"
+                autoPlay="true" 
+                loop
+                className="simonVid">
+                <source 
+                  src={Demo} 
+                  type="video/mp4"/>
+                  Your browser does not support the video tag.
+              </video>
+              <h3>View Source - github.com/Rosstapasta/simon_vr_2</h3>
             </div>
 
             <div className="textMedia">
               <h1 id="text2">I originally recreated Simon as a static app. After playing around with Aframe for a bit I thought it would be fun to make it again for my oculus rift. 
-                {/* This version is still a bit buggy, my coding isnt perfect but im getting better. */}
               </h1>
-              {/* <img className="simonImg" src={OldSimon} alt='simon'/> */}
               <video 
               id="video-background"
               width="450"
               autoPlay="true" 
-              loop>
+              loop
+              className="simonVid">
               <source 
                 src={OldSimonVid} 
                 type="video/mp4"/>
                 Your browser does not support the video tag.
             </video>
-              <h3>STATIC VERSION</h3>
+              <h3>View Source - github.com/Rosstapasta/firstgame-simon</h3>
             </div>
 
             </div>
@@ -88,7 +88,7 @@ class Home extends Component {
 
           <div className="parallax">
               <div className="world">
-                <div className="simon">Static</div>
+                <div className="simon">Original</div>
 
                   {/* simon_DSKT_button */}
                 <Link to='/oldsimon'>    

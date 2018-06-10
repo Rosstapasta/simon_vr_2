@@ -1,8 +1,8 @@
 .body{
-    background-color: #222;
+    background-color: rgb(49, 49, 49);
     height: 17vh;
     padding: 5px;
-    color: white;
+    color: #ffe677;
     width: 100vw;
     position: relative;
 }

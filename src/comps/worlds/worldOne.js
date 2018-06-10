@@ -266,7 +266,7 @@ class WorldOne extends Component {
           }</Entity> :
           <Entity/>}
 
-            {/* namePlane board thing*/}
+          {/* namePlane board thing*/}
           <a-plane
             position="6 2 -3.65"
             rotation="0 -25 0"
@@ -314,17 +314,15 @@ class WorldOne extends Component {
                 </a-entity>
           </a-plane>
 
-
-
-            {/* simon */}
-            {/* base */}
+          {/* simon */}
+          {/* base */}
           <Entity 
             geometry="primitive: cylinder; height: .5; radius: 2;" 
             material={{color: 'black'}} 
             position='0 2 -5' 
             rotation='90 0 0'>
 
-              {/* Middle */}
+            {/* Middle */}
             <Entity
               geometry="primitive: cylinder; heigth: .9; radius: .9"
               material={{color: 'black'}}
@@ -363,7 +361,7 @@ class WorldOne extends Component {
                   material="color: black">
                 </a-entity>
 
-                  {/* simon text */}
+                {/* simon text */}
                 <a-entity
                   text-geometry="value: Simon; bevelThickness: 30"
                   position="-.69 .5 -.14"
@@ -389,6 +387,7 @@ class WorldOne extends Component {
                 </Entity>
               </Entity>
 
+              {/* black cross object */}
               <Entity
                 geometry="primitive: box;"
                 material={{color: 'black'}}
@@ -485,8 +484,6 @@ class WorldOne extends Component {
           </Entity>
 
             {/* controls */}
-
-
           {this.state.controls ? <Entity>{
               <a-entity camera fps-look-controls wasd-controls>
                 <a-cursor></a-cursor>
@@ -510,7 +507,6 @@ class WorldOne extends Component {
               </a-entity>
           </Entity>
           }
-
 
         </Scene>
       </div>

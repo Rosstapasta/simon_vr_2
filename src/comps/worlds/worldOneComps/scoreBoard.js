@@ -191,7 +191,7 @@ export default class ScoreBoard extends Component{
                         scale="4.2 .4 .3"
                         material={{color: "#cd77ff", opacity: .5}}>
                         <a-entity 
-                            text-geometry={`value: 3rd`} 
+                            text-geometry={`value: 4th`} 
                             position='-.45 -.2 0' 
                             scale='.1 .8 .5'
                             rotation="0 0 0"
