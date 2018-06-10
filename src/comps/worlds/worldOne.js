@@ -24,23 +24,16 @@ class WorldOne extends Component {
     super()
 
     this.state = {
-      colorRed: 'red',
-      colorBlue: 'blue',
-      colorGreen: 'green',
-      colorYellow: 'yellow',
+      colorRed: '#ff0000',
+      colorBlue: '#0000ff',
+      colorGreen: '#008000',
+      colorYellow: '#ffff00',
 
       sequence: [],
       playerSeq: [],
       round: 0,
 
-      // sound1: false,
-      score: 0,
       score2: '00',
-
-      nameOption: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
-      iOne: 0,
-      iTwo: 0,
-      iThree: 0,
 
       enterInitials: false,
 
@@ -53,7 +46,6 @@ class WorldOne extends Component {
       controls: true
     }
     this.playerInput = this.playerInput.bind(this);
-    this.changeColor = this.changeColor.bind(this);
   }
 
   componentWillMount(){
@@ -78,41 +70,37 @@ class WorldOne extends Component {
         if(random[i] === 1){
 
           setTimeout( () => {
-            this.setState({colorRed: 'purple', soundThree: true})
+            this.setState({colorRed: '#ff9999', soundThree: true})
           }, 700 * timesX)
           setTimeout( () => {
-            this.setState({colorRed: 'red', soundThree: false})
+            this.setState({colorRed: '#ff0000', soundThree: false})
           }, 700 * timesX2)
 
         }else if(random[i] === 2){
 
           setTimeout( () => {
-            this.setState({colorYellow: 'purple'})
+            this.setState({colorYellow: '#ffffb2', soundTwo: true})
           }, 700 * timesX)
-
-          // setTimeout( () => {
-          //   this.setState({soundTwo: true})
-          // }, 700 * timesX - 50)
           setTimeout( () => {
-            this.setState({colorYellow: 'yellow', soundTwo: false})
+            this.setState({colorYellow: '#ffff00', soundTwo: false})
           }, 700 * timesX2)
 
         }else if(random[i] === 3){
 
           setTimeout( () => {
-            this.setState({colorBlue: 'purple', soundFour: true})
+            this.setState({colorBlue: '#9999ff', soundFour: true})
           }, 700 * timesX)
           setTimeout( () => {
-            this.setState({colorBlue: 'blue', soundFour: false})
+            this.setState({colorBlue: '#0000ff', soundFour: false})
           }, 700 * timesX2)
 
         }else if(random[i] === 4){
 
           setTimeout( () => {
-            this.setState({colorGreen: 'purple', soundOne: true})
+            this.setState({colorGreen: '#99cc99', soundOne: true})
           }, 700 * timesX)
           setTimeout( () => {
-            this.setState({colorGreen: 'green', soundOne: false})
+            this.setState({colorGreen: '#008000', soundOne: false})
           }, 700 * timesX2)
 
         }
@@ -146,46 +134,19 @@ class WorldOne extends Component {
           var newScore3 = '' + newScore;
           this.setState({score2: newScore3})
         }
-
-        this.setState({playerSeq: []}, () => {return this.seqStart()})
+        setTimeout(()=> {
+          this.setState({playerSeq: []}, () => {return this.seqStart()})
+        }, 800)
       }else if(playerSeq.length === sequence.length && playerSeq.toString() !== sequence.toString()){
-        // alert('you loose!');
+
         this.setState({sequence: [], playerSeq: [], enterInitials: true, soundFive: true})
       }else if(playerSeq.toString() !== seqPiece2.toString()){
-        // alert('you loose!');
+
           this.setState({sequence: [], playerSeq: [], enterInitials: true, soundFive: true})
       }
     })
   }
 
-  changeColor(val){
-
-    if(val === 'red'){
-      this.setState({colorRed: 'purple'})
-      setTimeout( () => {
-        this.setState({colorRed: 'red'}, 
-        () => this.playerInput(1))
-      }, 500)
-    }else if(val === 'green'){
-      this.setState({colorGreen: 'purple'})
-      setTimeout( () => {
-        this.setState({colorGreen: 'green'}, 
-        () => this.playerInput(4))
-      }, 500)
-    }else if(val === 'blue'){
-      this.setState({colorBlue: 'purple'})
-      setTimeout( () => {
-        this.setState({colorBlue: 'blue'}, 
-        () => this.playerInput(3))
-      }, 500)
-    }else if(val === 'yellow'){
-      this.setState({colorYellow: 'purple'})
-      setTimeout( () => {
-        this.setState({colorYellow: 'yellow'}, 
-        () => this.playerInput(2))
-      }, 500)
-    }
-  }
 
   render() {
 
@@ -408,77 +369,51 @@ class WorldOne extends Component {
             {/* blue */}
             <Entity 
               geometry="primitive: cylinder; height: .4; radius: 1.7; thetaLength: 90" 
-              material={{color: this.state.colorBlue}} 
+              material={{color: this.state.colorBlue}}
               position='0 .3 0' 
               rotation='0 135 0'
-              events={{click: () => this.changeColor('blue')}}
-              sound={`src: ${sound4}; on: click`}>
-              <a-animation
-                begin="click"
-                attribute='position'
-                duration='300'
-                from='0 .09 0'
-                to='0 .3 0'
-                repeat='0'>
-              </a-animation>
+              events={{click: () => this.playerInput(3)}}
+              sound={`src: ${sound4}; on: click`}
+              animation="property: material.color; dur: 700; from: #9999ff; to: #0000ff; startEvents: click;"
+              animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
             </Entity>
 
             {/* red */}
             <Entity 
               geometry="primitive: cylinder; height: .4; radius: 1.7; thetaLength: 90" 
-              material={{color: this.state.colorRed}} 
+              material={{color: this.state.colorRed}}
               position='0 .3 0' 
               rotation='0 315 0'
               scale="1 1 1"
-              events={{click: () => this.changeColor('red')}}
-              sound={`src: ${sound3}; on: click`}>
-              <a-animation
-                begin="click"
-                attribute='position'
-                duration='300'
-                from='0 .09 0'
-                to='0 .3 0'
-                repeat='0'
-                easing='ease'>
-              </a-animation>
+              events={{click: () => this.playerInput(1)}}
+              sound={`src: ${sound3}; on: click`}
+              animation="property: material.color; dur: 700; from: #ff9999; to: #ff0000; startEvents: click;"
+              animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
             </Entity>
 
               {/* yellow */}
             <Entity 
               geometry="primitive: cylinder; height: .4; radius: 1.7; thetaLength: 90" 
-              material={{color: this.state.colorYellow}} 
+              material={{color: this.state.colorYellow}}
               position='0 .3 0' 
               rotation='0 45 0'
-              events={{click: () => this.changeColor('yellow')}}
-              sound={`src: ${sound2}; on: click`}>
-            <a-animation
-              begin="click"
-              attribute='position'
-              duration='300'
-              from='0 .09 0'
-              to='0 .3 0'
-              repeat='0'
-              easing='ease'>
-              </a-animation>
+              events={{click: () => this.playerInput(2)}}
+              sound={`src: ${sound2}; on: click`}
+              animation="property: material.color; dur: 700; from: #ffffb2; to: #ffff00; startEvents: click;"
+              animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
             </Entity>
 
               {/* green */}
             <Entity 
               geometry="primitive: cylinder; height: .4; radius: 1.7; thetaLength: 90" 
-              material={{color: this.state.colorGreen}} 
+              material={{color: this.state.colorGreen}}
               position='0 .3 0' 
               rotation='0 225 0'
-              events={{click: () => this.changeColor('green')}}
-              sound={`src: ${sound1}; on: click`}>
-              <a-animation
-                begin="click"
-                attribute='position'
-                duration='300'
-                from='0 .09 0'
-                to='0 .3 0'
-                repeat='0'
-                easing='ease'>
-              </a-animation>
+              events={{click: () => this.playerInput(4)}}
+              sound={`src: ${sound1}; on: click`}
+              animation="property: material.color; dur: 700; from: #99cc99; to: #008000; startEvents: click;"
+              animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
+              >
             </Entity>
 
           </Entity>
