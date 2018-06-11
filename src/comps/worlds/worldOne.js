@@ -10,7 +10,7 @@ import './worldOne.css';
 import sound1 from './worldOneMedia/sound1.mp3';
 import sound2 from './worldOneMedia/sound2.mp3';
 import sound3 from './worldOneMedia/sound3.mp3';
-import sound4 from './worldOneMedia/sound4.mp3';
+import sound4 from './worldOneMedia/sound4222.ogg';
 import sound5 from './worldOneMedia/sound5.mp3';
 import robotRock from './worldOneMedia/RobotRock.ogg';
 
@@ -117,22 +117,22 @@ class WorldOne extends Component {
         this.setState({soundThree: true})
       setTimeout( () => {
         this.setState({soundThree: false})
-      }, 250)
+      }, 300)
     }if( val === 2){
         this.setState({soundTwo: true})
       setTimeout( () => {
         this.setState({soundTwo: false})
-      }, 250)
+      }, 300)
     }if( val === 3){
         this.setState({soundFour: true})
       setTimeout( () => {
         this.setState({soundFour: false})
-      }, 250)
+      }, 300)
     }if( val === 4){
         this.setState({soundOne: true})
       setTimeout( () => {
         this.setState({soundOne: false})
-      }, 250)
+      }, 300)
     }
 
     var newSeq = this.state.playerSeq;
