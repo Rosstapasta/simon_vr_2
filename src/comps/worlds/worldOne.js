@@ -113,6 +113,28 @@ class WorldOne extends Component {
 
   playerInput(val){
 
+    if(val === 1){
+        this.setState({soundThree: true})
+      setTimeout( () => {
+        this.setState({soundThree: false})
+      }, 250)
+    }if( val === 2){
+        this.setState({soundTwo: true})
+      setTimeout( () => {
+        this.setState({soundTwo: false})
+      }, 250)
+    }if( val === 3){
+        this.setState({soundFour: true})
+      setTimeout( () => {
+        this.setState({soundFour: false})
+      }, 250)
+    }if( val === 4){
+        this.setState({soundOne: true})
+      setTimeout( () => {
+        this.setState({soundOne: false})
+      }, 250)
+    }
+
     var newSeq = this.state.playerSeq;
     var seqPiece = this.state.sequence;
     newSeq.push(val);
@@ -197,7 +219,7 @@ class WorldOne extends Component {
 
         <a-entity position="0 0 0" sound="src: #robotRock1"></a-entity> */}
 
-          <a-sound src='src: url(worldOneMedia/RobotRock.ogg)' autoplay="true" position="0 0 0"></a-sound>
+          {/* <a-sound src='src: url(worldOneMedia/RobotRock.ogg)' autoplay="true" position="0 0 0"></a-sound> */}
 
 
           <a-plane 
@@ -219,6 +241,7 @@ class WorldOne extends Component {
           </a-cylinder>
 
           <ScoreBoard></ScoreBoard>
+
           <PlayerScore>{this.state.score2}</PlayerScore>
 
           {/* player initials */}
@@ -283,7 +306,7 @@ class WorldOne extends Component {
             position='0 2 -5' 
             rotation='90 0 0'>
 
-            {/* Middle */}
+            {/* Middle cylinder*/}
             <Entity
               geometry="primitive: cylinder; heigth: .9; radius: .9"
               material={{color: 'black'}}
@@ -297,7 +320,7 @@ class WorldOne extends Component {
                 rotation='0 0 0'
                 scale=".9 .6 .9">
 
-                {/* start */}
+                {/* start button */}
                 <Entity
                   geometry="primitive: cylinder; height: .9; radius: .1"
                   material ={{color: 'green'}}
@@ -366,7 +389,7 @@ class WorldOne extends Component {
               position='0 .3 0' 
               rotation='0 135 0'
               events={{click: () => this.playerInput(3)}}
-              sound={`src: ${sound4}; on: click`}
+              // sound={`src: ${sound4}; on: click`}
               animation="property: material.color; dur: 700; from: #9999ff; to: #0000ff; startEvents: click;"
               animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
             </Entity>
@@ -379,31 +402,31 @@ class WorldOne extends Component {
               rotation='0 315 0'
               scale="1 1 1"
               events={{click: () => this.playerInput(1)}}
-              sound={`src: ${sound3}; on: click`}
+              // sound={`src: ${sound3}; on: click`}
               animation="property: material.color; dur: 700; from: #ff9999; to: #ff0000; startEvents: click;"
               animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
             </Entity>
 
-              {/* yellow */}
+            {/* yellow */}
             <Entity 
               geometry="primitive: cylinder; height: .4; radius: 1.7; thetaLength: 90" 
               material={{color: this.state.colorYellow}}
               position='0 .3 0' 
               rotation='0 45 0'
               events={{click: () => this.playerInput(2)}}
-              sound={`src: ${sound2}; on: click`}
+              // sound={`src: ${sound2}; on: click`}
               animation="property: material.color; dur: 700; from: #ffffb2; to: #ffff00; startEvents: click;"
               animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
             </Entity>
 
-              {/* green */}
+            {/* green */}
             <Entity 
               geometry="primitive: cylinder; height: .4; radius: 1.7; thetaLength: 90" 
               material={{color: this.state.colorGreen}}
               position='0 .3 0' 
               rotation='0 225 0'
               events={{click: () => this.playerInput(4)}}
-              sound={`src: ${sound1}; on: click`}
+              // sound={`src: ${sound1}; on: click`}
               animation="property: material.color; dur: 700; from: #99cc99; to: #008000; startEvents: click;"
               animation__click="property: position; dur: 500; easing: linear; from: 0 .09 0; to: 0 .3 0; startEvents: click;">
               >
@@ -411,7 +434,7 @@ class WorldOne extends Component {
 
           </Entity>
 
-            {/* controls */}
+          {/* controls */}
           {this.state.controls ? <Entity>{
               <a-entity camera fps-look-controls wasd-controls>
                 <a-cursor></a-cursor>

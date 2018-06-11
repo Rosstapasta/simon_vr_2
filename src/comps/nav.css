@@ -9,5 +9,15 @@
 
 .text{
     font-size: 5vw;
-    
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
 }
