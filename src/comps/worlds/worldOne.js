@@ -12,7 +12,7 @@ import sound2 from './worldOneMedia/sound2.mp3';
 import sound3 from './worldOneMedia/sound3.mp3';
 import sound4 from './worldOneMedia/sound4222.ogg';
 import sound5 from './worldOneMedia/sound5.mp3';
-import robotRock from './worldOneMedia/RobotRock.ogg';
+import gameMusic from './worldOneMedia/gameMusic.mp3';
 
 import Initials from './worldOneComps/initials.js';
 import PlayerScore from './worldOneComps/playerScore.js';
@@ -174,7 +174,7 @@ class WorldOne extends Component {
 
     return (
       <div className="worldOne" style={{position: 'fixed', height: '83vh'}}>
-              {/* <audio volume="2" src={robotRock} autoplay="true" type="audio/ogg" ></audio>    */}
+              <audio volume="2" src={gameMusic} autoplay="true" type="audio/ogg" ></audio>   
 
             {/* soundOne */}
             {this.state.soundOne ? <div>{
