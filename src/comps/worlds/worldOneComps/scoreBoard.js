@@ -14,13 +14,20 @@ export default class ScoreBoard extends Component{
         }
     }
 
-    componentWillMount(){
+    getScores(){
         axios.get('/highscores').then(res => {
             this.setState({scores: res.data})
         })
     }
 
+    componentWillMount(){
+        this.getScores();
+    }
+
     render(){
+        // if(this.props.children){
+        //     this.getScores();
+        // }
         return (
             <Entity>
             <a-plane

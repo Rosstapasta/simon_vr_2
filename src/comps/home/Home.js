@@ -27,7 +27,7 @@ class Home extends Component {
                 <button 
                   className="buttonOne">
                   <div className="buttonFont">
-                    Mouse Controls
+                    wasd/Mouse
                   </div>
                 </button>
                 </Link>
@@ -38,7 +38,7 @@ class Home extends Component {
                   id="two"
                   className="buttonOne">
                   <div className="buttonFont">
-                    Oculus Controls
+                    Oculus Touch
                   </div>
                 </button>
                 </Link>

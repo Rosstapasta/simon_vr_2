@@ -13,7 +13,11 @@ export default class Initials extends Component{
             iOne: 0,
             iTwo: 0,
             iThree: 0,
-            sent: false
+            sent: false,
+
+            iThreeColor: '#cd77ff',
+            iTwoColor: '#cd77ff',
+            iOneColor: '#cd77ff',
         }
     }
 
@@ -37,7 +41,7 @@ export default class Initials extends Component{
           }else{
             newVal++;
           }
-          this.setState({iOne: newVal})
+          this.setState({iOne: newVal, iOneColor: '#ff0000'})
         }else if(val === 2){
           let newVal = iTwo;
           if(newVal >= 25){
@@ -45,7 +49,7 @@ export default class Initials extends Component{
           }else{
             newVal++;
           }
-          this.setState({iTwo: newVal})
+          this.setState({iTwo: newVal, iTwoColor: '#ff0000'})
         }else if(val === 3){
           let newVal = iThree;
           if(newVal >= 25){
@@ -53,7 +57,7 @@ export default class Initials extends Component{
           }else{
             newVal++;
           }
-          this.setState({iThree: newVal})
+          this.setState({iThree: newVal, iThreeColor: '#ff0000'})
         }
     }
 
@@ -73,11 +77,11 @@ export default class Initials extends Component{
                     geometry="primitive: box;" 
                     position="7.5 2.9 -2.9"
                     scale="1.2 1.5 .4"
-                    material={{color: "#cd77ff", opacity: .5}}
+                    material={{color: this.state.iOneColor, opacity: 0.5}}
                     events={{click: () => this.letterChange(1)}}
-                    rotation="0 -25 0">
+                    rotation="0 -25 0"
+                    animation__mousein1="property: material.color; dur: 1; easing: linear; from: #cd77ff; to: #ff0000; startEvents: mouseenter;">
                 </Entity>
-                
 
                 {/* iTwo */}
                 <a-entity 
@@ -91,9 +95,10 @@ export default class Initials extends Component{
                     geometry="primitive: box;" 
                     position="6 2.9 -3.6"
                     scale="1.2 1.5 .4"
-                    material={{color: "#cd77ff", opacity: .5}}
+                    material={{color: this.state.iTwoColor, opacity: 0.5}}
                     events={{click: () => this.letterChange(2)}}
-                    rotation="0 -25 0">
+                    rotation="0 -25 0"
+                    animation__mousein2="property: material.color; dur: 1; easing: linear; from: #cd77ff; to: #ff0000; startEvents: mouseenter;">
                 </Entity>
                 
                 {/* iThree */}
@@ -108,10 +113,10 @@ export default class Initials extends Component{
                     geometry="primitive: box;" 
                     position="4.5 2.9 -4.3"
                     scale="1.2 1.5 .4"
-                    material="color: #cd77ff; opacity: 0.5"
+                    material={{color: this.state.iThreeColor, opacity: 0.5}}
                     events={{click: () => this.letterChange(3)}}
                     rotation="0 -25 0"
-                    animation__mousein="property: material.color; dur: 1; easing: linear; from: #cd77ff; to: #ff0000; startEvents: mouseenter;" animation__mouseout="property: material.color; dur: 1; easing: linear;from: #ff0000; to: #cd77ff; startEvents: mouseleave;" animation__click="property: material.color; dur: 10000; easing: linear; from: #ff0000; to: #ff0000; loop: true; startEvents: click;">
+                    animation__mousein3="property: material.color; dur: 1; easing: linear; from: #cd77ff; to: #ff0000; startEvents: mouseenter;">
 
                 </Entity>
 

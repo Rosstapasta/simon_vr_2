@@ -43,7 +43,8 @@ class WorldOne extends Component {
       soundFour: false,
       soundFive: false,
 
-      controls: true
+      controls: true,
+      playsound: false
     }
     this.playerInput = this.playerInput.bind(this);
   }
@@ -52,6 +53,113 @@ class WorldOne extends Component {
     if(this.props.match.params.mode === "VR"){
       this.setState({controls: false})
     }
+  }
+
+  componentDidMount(){
+    var plus = 1000;
+
+    // round1
+    setTimeout( () => {
+      this.setState({colorRed: '#ff9999'})
+    }, 2000 + plus)
+
+    setTimeout( () => {
+      this.setState({colorGreen: '#99cc99'})
+    }, 2100 + plus)
+
+    setTimeout( () => {
+      this.setState({colorBlue: '#9999ff'})
+    }, 2200 + plus)
+
+    setTimeout( () => {
+      this.setState({colorYellow: '#ffffb2'})
+    }, 2300 + plus)
+
+    setTimeout( () => {
+      this.setState({colorRed: '#ff0000'})
+    }, 2700 + plus)
+
+    setTimeout( () => {
+      this.setState({colorGreen: '#008000'})
+    }, 2800 + plus)
+
+    setTimeout( () => {
+      this.setState({colorBlue: '#0000ff'})
+    }, 2900 + plus)
+
+    setTimeout( () => {
+      this.setState({colorYellow: '#ffff00'})
+    }, 3000 + plus)
+
+    // round2
+    setTimeout( () => {
+      this.setState({colorRed: '#ff9999'})
+    }, 3100 + plus)
+
+    setTimeout( () => {
+      this.setState({colorGreen: '#99cc99'})
+    }, 3200 + plus)
+
+    setTimeout( () => {
+      this.setState({colorBlue: '#9999ff'})
+    }, 3300 + plus)
+
+    setTimeout( () => {
+      this.setState({colorYellow: '#ffffb2'})
+    }, 3400 + plus)
+
+    setTimeout( () => {
+      this.setState({colorRed: '#ff0000'})
+    }, 3800 + plus)
+
+    setTimeout( () => {
+      this.setState({colorGreen: '#008000'})
+    }, 3900 + plus)
+
+    setTimeout( () => {
+      this.setState({colorBlue: '#0000ff'})
+    }, 4000 + plus)
+
+    setTimeout( () => {
+      this.setState({colorYellow: '#ffff00'})
+    }, 4100 + plus)
+
+    // round3
+    setTimeout( () => {
+      this.setState({colorRed: '#ff9999'})
+    }, 4200 + plus)
+
+    setTimeout( () => {
+      this.setState({colorGreen: '#99cc99'})
+    }, 4300 + plus)
+
+    setTimeout( () => {
+      this.setState({colorBlue: '#9999ff'})
+    }, 4400 + plus)
+
+    setTimeout( () => {
+      this.setState({colorYellow: '#ffffb2'})
+    }, 4500 + plus)
+
+    setTimeout( () => {
+      this.setState({colorRed: '#ff0000'})
+    }, 4900 + plus)
+
+    setTimeout( () => {
+      this.setState({colorGreen: '#008000'})
+    }, 5000 + plus)
+
+    setTimeout( () => {
+      this.setState({colorBlue: '#0000ff'})
+    }, 5100 + plus)
+
+    setTimeout( () => {
+      this.setState({colorYellow: '#ffff00'})
+    }, 5200 + plus)
+
+    setTimeout( () => {
+      this.setState({playsound: "true"})
+    }, 6200)
   }
 
 
@@ -161,10 +269,42 @@ class WorldOne extends Component {
         }, 800)
       }else if(playerSeq.length === sequence.length && playerSeq.toString() !== sequence.toString()){
 
-        this.setState({sequence: [], playerSeq: [], enterInitials: true, soundFive: true})
+        this.setState({
+          sequence: [], 
+          playerSeq: [], 
+          enterInitials: true, 
+          soundFive: true,
+          colorRed: '#ff9999',
+          colorBlue: '#9999ff',
+          colorGreen: '#99cc99',
+          colorYellow: '#ffffb2'})
+        setTimeout(() => {
+          this.setState({      
+            colorRed: '#ff0000',
+            colorBlue: '#0000ff',
+            colorGreen: '#008000',
+            colorYellow: '#ffff00'})
+        }, 700)
+
       }else if(playerSeq.toString() !== seqPiece2.toString()){
 
-          this.setState({sequence: [], playerSeq: [], enterInitials: true, soundFive: true})
+        this.setState({
+          sequence: [], 
+          playerSeq: [], 
+          enterInitials: true, 
+          soundFive: true,
+          colorRed: '#ff9999',
+          colorBlue: '#9999ff',
+          colorGreen: '#99cc99',
+          colorYellow: '#ffffb2'})
+        setTimeout(() => {
+          this.setState({      
+            colorRed: '#ff0000',
+            colorBlue: '#0000ff',
+            colorGreen: '#008000',
+            colorYellow: '#ffff00'})
+        }, 700)
+        
       }
     })
   }
@@ -174,7 +314,11 @@ class WorldOne extends Component {
 
     return (
       <div className="worldOne" style={{position: 'fixed', height: '83vh'}}>
-              <audio volume="2" src={gameMusic} autoplay="true" type="audio/ogg" ></audio>   
+
+              {this.state.playsound ? <div>{
+                <audio volume="2" src={gameMusic} autoplay="true" type="audio/ogg" ></audio>   
+              }</div> : 
+              <div/>}
 
             {/* soundOne */}
             {this.state.soundOne ? <div>{
@@ -313,6 +457,8 @@ class WorldOne extends Component {
               position='0 .23 0' 
               rotation='0 0 0'
               scale="1 .8 1">
+
+              
               <Entity
                 geometry="primitive: cylinder; heigth: .9; radius: .9"
                 material={{color: 'grey'}}
@@ -323,13 +469,21 @@ class WorldOne extends Component {
                 {/* start button */}
                 <Entity
                   geometry="primitive: cylinder; height: .9; radius: .1"
-                  material ={{color: 'green'}}
+                  material ={{color: 'green', opacity: "0"}}
                   position=".4 .15 .15"
                   rotation='0 0 0'
-                  scale='1.2 1.2 1.2'
+                  scale='2 1.2 2'
                   events={{click: () => { return this.seqStart(), this.setState({score2: '00'}) }}}
                   animation__click="property: position; dur: 500; easing: linear; from: .4 .08 .15'; to: .4 .15 .15; startEvents: click;">
+                  <Entity
+                    geometry="primitive: cylinder; height: .9; radius: .1"
+                    material ={{color: 'green'}}
+                    position="0 0 0"
+                    rotation='0 0 0'
+                    scale='.6 1 .6'>
+                  </Entity>
                 </Entity>
+
                 <a-entity
                   text-geometry="value: start"
                   position=".27 .5 .4"
