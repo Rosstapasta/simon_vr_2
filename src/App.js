@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {Switch, Route } from 'react-router-dom';
 import Routes from './routes.js';
-import 'super-hands';
+// import 'super-hands';
 import Navbar from './comps/nav.js';
-import Footer from './comps/footer/footer.js';
 
 class App extends Component {
   render() {

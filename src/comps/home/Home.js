@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './Home.css';
-import Simon from './homeMedia/simon.png';
 import Demo from './homeMedia/demo.mp4';
 import OldSimonVid from './homeMedia/oldSimonVid333.mp4';
-import OldSimon from './homeMedia/oldSimon.png';
-
-import Footer from '../footer/footer.js';
 
 class Home extends Component {
 

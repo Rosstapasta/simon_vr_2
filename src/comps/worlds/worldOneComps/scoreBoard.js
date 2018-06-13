@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import 'aframe';
-import 'aframe-area-light-component';
 import 'aframe-text-geometry-component';
-import {Entity, Scene} from 'aframe-react';
+import {Entity} from 'aframe-react';
 import axios from 'axios';
 
 export default class ScoreBoard extends Component{
