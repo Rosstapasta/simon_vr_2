@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       
-          <div className='wraper1'>
+        <div className='wraper1'>
 
           <div className="parallax">
               <div className="world">
@@ -18,26 +18,28 @@ class Home extends Component {
                   SIMON
                 </div>
 
-                {/* simon_DSKT_button */}
-                <Link to='/simon/DSKT'>    
-                <button 
-                  className="buttonOne">
-                  <div className="buttonFont">
-                    wasd/Mouse
-                  </div>
-                </button>
-                </Link>
+                <div className='buttonRow'>
+                  {/* simon_DSKT_button */}
+                  <Link to='/simon/DSKT'>    
+                  <button 
+                    className="buttonOne">
+                    <div className="buttonFont">
+                      wasd/Mouse
+                    </div>
+                  </button>
+                  </Link>
 
-                {/* simon_vr_button */}
-                <Link to='/simon/VR'>
-                <button 
-                  id="two"
-                  className="buttonOne">
-                  <div className="buttonFont">
-                    Oculus Touch
-                  </div>
-                </button>
-                </Link>
+                  {/* simon_vr_button */}
+                  <Link to='/simon/VR'>
+                  <button 
+                    id="two"
+                    className="buttonOne">
+                    <div className="buttonFont">
+                      Oculus Touch
+                    </div>
+                  </button>
+                  </Link>
+                </div>
 
               </div>
           </div>
@@ -47,7 +49,7 @@ class Home extends Component {
 
 
             <div className="textMedia">
-              <h1>Thank you for visiting! Simon VR was built using React and A-frame.</h1>
+              <h1 className="captions">Thank you for visiting! Simon VR was built using React and A-frame.</h1>
               
               <div className="vidBlock">
               <h1 style={{borderBottom: "5px solid #77dbff"}}>SIMON VR</h1>
@@ -97,7 +99,7 @@ class Home extends Component {
           </div>
 
           <div className="parallax">
-              <div className="world">
+              <div id='world2' className="world">
                 <div className="simon">Original</div>
 
                 {/* simon_DSKT_button */}

@@ -14,7 +14,7 @@
 
         perspective: 1px;
         transform-style: preserve-3d;
-        height: 83vh;
+        height: 100vh;
         overflow-x: hidden;
         overflow-y: scroll;
     
@@ -47,11 +47,13 @@
 
 #cc2{
     min-height: 10vh;
+    position: absolute;
+    width: 100vw;
 }
 
 .footerText{
     position: relative;
-    top: 1vw;
+    /* top: 1vw; */
     font-size: 4vw;
 }
 
@@ -67,6 +69,9 @@
 
 .world{
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 40vw;
     height: 20vw;
     border-radius: 20px;
@@ -76,14 +81,19 @@
     animation-name: slidein;
 }
 
-  @keyframes slidein {
+#world2{
+    top: 42vh;
+}
+
+
+@keyframes slidein {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
 
 
 .icon{
@@ -96,23 +106,57 @@
 }
 
 .world:hover{
-        box-shadow: 0 0 10px 5px;
+    box-shadow: 0 0 10px 5px;
+}
+
+.buttonRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .buttonOne{
-    width: 40%;
-    height: 15%;
+    right: 5px;
     position: relative;
+    width: 15vw;
+    height: 4vw;
     margin: 4%;
     border-radius: 6px;
     border: none;
-    top: 25%;
     background-color: #cd77ff;
     font-size: 99%;
     color: #ffe677;
     font-weight: bold;
 }
 
+.buttonFont{
+    font-size: 1.8vw;
+}
+
+.simon{
+    position: relative;
+    top: 2.5vw;
+    font-size: 7.5vw;
+    font-weight: bold;
+}
+
+@media(max-width: 871px){
+    .world{
+        width: 70vw;
+        height: 35vw;
+    }
+    .buttonOne{
+        width: 28vw;
+        height: 7vw;
+    }
+    .buttonFont{
+        font-size: 3vw;
+    }
+    .simon{
+        font-size: 13vw;
+    }
+}
 .buttonOne:hover{
     background-color: #ffa277;
     box-shadow: 0 0 10px 5px;
@@ -127,18 +171,9 @@
     box-shadow: 0 0 10px 5px;
 }
 
-.simon{
-    position: relative;
-    top: 5.5vw;
-    font-size: 7.5vw;
-    font-weight: bold;
-}
 
-.buttonFont{
-    font-size: 1.4vw;
-}
 
-#video-background {
+#video-background{
       position: relative;
       right: 0; 
       bottom: 0;
@@ -147,15 +182,15 @@
       width: auto; 
       height: auto;
       z-index: -100;
-    }
+}
 
-    @media(max-width: 400px){
+/* @media(max-width: 400px){
     #video-background{
-        max-width: 190%;
-        max-height: 190%;
+        max-width: 100%;
+        max-height: 100%;
       
     }
-}
+} */
 
 .simonImg{
     max-width: 100%;
@@ -184,8 +219,14 @@
     box-shadow: 0 0 6px 3px;
 }
 
+
+
 .vidBlock{
     display: flex;
     flex-direction: column;
     align-items: baseline;
+}
+
+.captions{
+    font-size: 3vw;
 }

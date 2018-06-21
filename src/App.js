@@ -13,7 +13,7 @@ class App extends Component {
           <Navbar></Navbar>
         </header>
         
-        <div style={{position: 'relative', top: '17vh', zIndex: '1'}}>
+        <div style={{position: 'relative', top: '9.6vw', zIndex: '1'}}>
           <Routes/>
         </div>
 
